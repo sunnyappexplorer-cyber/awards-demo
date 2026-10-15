@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Western India Business Awards 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ===== 1. DESIGN TOKENS ===== */
+:root{
+  --bg:#1b1b1d; --glow-1:#7a5338; --glow-2:#6a3f66; --accent:#e8193c;
+  --text:#f2f2f2; --muted:#c9c4c8;
+  --glass:rgba(255,255,255,.08); --glass-border:rgba(255,255,255,.12);
+  --serif:'Libre Caslon Text',Georgia,serif; --sans:'Montserrat',sans-serif; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;
+  background:
+    radial-gradient(900px 600px at 0% 10%, var(--glow-1), transparent 60%),
+    radial-gradient(900px 700px at 100% 90%, var(--glow-2), transparent 60%),
+    radial-gradient(700px 500px at 0% 90%, var(--glow-2), transparent 60%),
+    var(--bg);
+  background-attachment:fixed}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.cover{width:100%;height:100%;object-fit:cover}
+.container{max-width:var(--max);margin:0 auto;padding:0 16px}
+section{padding:80px 0;border-top:1px solid rgba(255,255,255,.08)}
+.title{font-family:var(--serif);font-weight:700;font-size:2.4rem;text-align:center;line-height:1.2}
+.title::after{content:"";display:block;width:46px;height:4px;border-radius:2px;background:#fff;margin:22px auto 48px}
+.title.left{text-align:left}.title.left::after{margin-left:0}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:1.15rem;padding:14px 48px;border-radius:50px;transition:.2s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.icon-line{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;font-size:1.3rem}
+.icon-line i{color:var(--accent);margin-right:10px}
+
+/* ===== 2. TEXT LOGO (fictional brand — replace with your own) ===== */
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{background:var(--accent);color:#fff;font-family:var(--serif);font-weight:700;font-size:1.6rem;padding:4px 10px;line-height:1.2}
+.brand .name{font-family:var(--serif);font-weight:700;font-size:1.5rem;line-height:1;font-variant:small-caps;letter-spacing:.5px}
+.brand .name small{display:block;font-family:var(--serif);font-weight:400;font-size:.8rem;text-align:right;font-variant:normal;color:#ddd;margin-top:4px}
+
+/* ===== 3. TOP HEADER ===== */
+.topbar{background:linear-gradient(90deg,#2a2522,#3a2a22)}
+.topbar .row1{display:flex;align-items:center;gap:28px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.divider{width:1px;height:52px;background:rgba(255,255,255,.25)}
+.event-name b{display:block;font-size:1.1rem}
+.event-name span{color:var(--muted)}
+.login{margin-left:auto;border:1px solid #fff;border-radius:30px;padding:8px 28px;font-weight:600}
+.topbar nav{display:flex;gap:40px;padding:14px 0;color:#ddd;font-weight:500}
+.topbar nav a:hover{color:#fff}
+
+/* ===== 4. HERO ===== */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;text-align:center;overflow:hidden;border:0}
+.hero-bg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);filter:grayscale(1) contrast(1.05)}
+.hero::after{content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px) 0 0/25% 33.33%,
+    linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px) 0 0/25% 33.33%,
+    linear-gradient(180deg,rgba(122,83,56,.72),rgba(106,63,102,.68) 60%,rgba(27,27,29,.95))}
+.hero .container{position:relative;z-index:2;width:100%}
+.hashtag{position:absolute;top:-70px;right:16px;font-weight:600;font-size:1.3rem}
+.hero .brand{justify-content:center;margin-bottom:26px}
+.hero .brand .name{font-size:2.2rem}
+.hero .brand .mark{font-size:2.4rem}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,5.2rem);line-height:1;letter-spacing:2px;text-transform:uppercase}
+.hero h2{font-family:var(--serif);font-size:clamp(1.3rem,3.4vw,2.9rem);margin:14px 0 18px;text-transform:uppercase;letter-spacing:1px}
+.tagline{display:inline-block;border-top:1px solid #fff;border-bottom:1px solid #fff;padding:6px 30px;font-family:var(--serif);font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.status{color:var(--accent);font-weight:600;font-size:1.6rem;margin:36px 0 18px}
+.hero .icon-line{margin-bottom:34px}
+
+/* ===== 5. PILL NAV ===== */
+.pill{position:fixed;top:14px;left:50%;transform:translate(-50%,-150%);z-index:100;display:flex;align-items:center;gap:26px;background:#ececec;color:#222;border-radius:60px;padding:12px 36px;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:transform .35s;white-space:nowrap}
+.pill.show{transform:translate(-50%,0)}
+.pill b{display:block;font-size:1rem}.pill small{color:#555}
+.pill .divider{height:44px;background:#bbb}
+.pill nav{display:flex;gap:26px;font-weight:500;color:#444}
+.pill nav a:hover{color:var(--accent)}
+
+/* ===== 6. SHARE BAR + BACK TO TOP ===== */
+.share{position:fixed;left:0;top:50%;transform:translateY(-10%);z-index:90;display:flex;flex-direction:column}
+.share a{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff}
+.share .fb{background:#3b5998}.share .x{background:#000}.share .li{background:#0a66c2}.share .wa{background:#4caf50}
+.to-top{position:fixed;right:18px;bottom:24px;width:64px;height:64px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8rem;z-index:90;opacity:0;pointer-events:none;transition:.3s}
+.to-top.show{opacity:1;pointer-events:auto}
+
+/* ===== 7. OVERVIEW ===== */
+.overview{display:grid;grid-template-columns:1.6fr 1fr;gap:70px}
+.overview p{margin-bottom:18px;font-size:1.05rem}
+.overview .more{text-decoration:underline;text-underline-offset:4px}
+.dates li{font-weight:700;margin:0 0 14px 18px;font-size:1.05rem}
+
+/* ===== 8. CATEGORIES ===== */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cat{position:relative;height:300px;border-radius:12px;overflow:hidden;background:#333}
+.cat img{position:absolute;inset:0;transition:transform .4s}
+.cat:hover img{transform:scale(1.06)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.25) 55%,transparent)}
+.cat h3{position:relative;z-index:2;text-align:center;padding:22px 14px;font-weight:500;font-size:1.2rem;text-transform:uppercase;line-height:1.35}
+
+/* ===== 9. JURY ===== */
+.jury-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+.jury{background:#fff;color:#111;border-radius:8px;overflow:hidden;text-align:center}
+.jury img{height:280px;object-position:top}
+.jury h3{font-size:1.15rem;margin:20px 12px 4px}
+.jury p{font-size:.9rem;color:#333;padding:0 14px 26px;line-height:1.5}
+
+/* ===== 10. FOCUS SECTOR ===== */
+.glass{background:var(--glass);border:1px solid var(--glass-border);border-radius:28px;backdrop-filter:blur(6px)}
+.sectors{padding:40px;text-align:center;font-size:1.05rem;line-height:2}
+
+/* ===== 11. WHY PARTICIPATE ===== */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+.why-grid details{border-bottom:1px dashed rgba(255,255,255,.4);padding:22px 0}
+.why-grid summary{display:flex;align-items:flex-start;gap:20px;cursor:pointer;list-style:none;font-family:var(--serif);font-size:1.5rem;line-height:1.3}
+.why-grid summary::-webkit-details-marker{display:none}
+.why-grid summary i{font-size:1.7rem;margin-top:4px}
+.why-grid summary::after{content:"+";margin-left:auto;font-family:var(--sans);font-weight:300;font-size:2rem;line-height:1}
+.why-grid details[open] summary::after{content:"−"}
+.why-grid details p{color:var(--muted);margin:12px 0 0 58px}
+
+/* ===== 12. HOW IT WORKS ===== */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.how{padding:40px}
+.how i{font-size:2.4rem;margin-bottom:28px}
+.how h3{font-family:var(--serif);font-size:1.55rem;margin-bottom:16px}
+.how p{color:var(--muted);margin-bottom:14px}
+.how a{text-decoration:underline;text-underline-offset:4px}
+
+/* ===== 13. ZIG-ZAG ===== */
+.zigzag{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:110px;row-gap:60px}
+.zigzag::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:3px dashed #fff;transform:translateX(-50%)}
+.zigzag .img{height:300px;border-radius:18px;overflow:hidden}
+.zigzag .txt{position:relative;align-self:center}
+.zigzag .txt h3{font-family:var(--serif);font-size:2rem;margin-bottom:16px}
+.zigzag .txt li{margin:0 0 14px 20px;color:var(--muted)}
+.zigzag .txt::before{content:"";position:absolute;top:40px;width:26px;height:34px;background:#fff;border-radius:50%/40% 40% 60% 60%}
+.zigzag .txt.right::before{left:-68px}.zigzag .txt.leftside::before{right:-68px}
+
+/* ===== 14. CTA + TICKET ===== */
+.cta{text-align:center}
+.cta h2{font-family:var(--serif);font-size:2.4rem;margin-bottom:18px}
+.cta p{color:var(--muted);font-size:1.25rem}.cta i{margin-right:10px}
+.ticket{position:relative;text-align:center;padding:60px 120px;background:rgba(255,255,255,.14);
+  -webkit-mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 44px repeat-y,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 44px repeat-y;
+          mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 44px repeat-y,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 44px repeat-y}
+.ticket::before,.ticket::after{content:"";position:absolute;top:10px;bottom:10px;border-left:4px dotted rgba(255,255,255,.45)}
+.ticket::before{left:14%}.ticket::after{right:14%}
+.ticket .fa-ticket{font-size:5rem;margin-bottom:24px;opacity:.9}
+.ticket h2{font-family:var(--serif);font-size:2.2rem;margin-bottom:12px}
+.ticket p{color:var(--muted);font-size:1.2rem;margin-bottom:18px}
+.ticket .icon-line{font-size:1.15rem;margin-bottom:30px;color:var(--muted)}
+.ticket .icon-line i{color:var(--muted)}
+
+/* ===== 15. FAQ ===== */
+.faq{max-width:960px;margin:0 auto}
+.faq details{background:rgba(255,255,255,.13);border:1px solid rgba(232,25,60,.25);border-radius:6px;margin-bottom:18px;padding:22px 28px}
+.faq summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;list-style:none;font-weight:600;font-size:1.1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:300;font-size:1.6rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--muted);margin-top:12px}
+
+/* ===== 16. CONTACT ===== */
+.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,330px));justify-content:center;gap:24px;text-align:center}
+.contacts h4{color:var(--accent);font-size:1.4rem;margin-bottom:22px}
+.contacts .glass{border-radius:20px;padding:24px;font-size:1.1rem;line-height:1.9}
+.contacts .glass span{color:var(--muted);display:block}
+.escalation{text-align:center;max-width:860px;margin:60px auto 0;font-size:1.05rem}
+
+/* ===== 17. ABOUT + FOOTER ===== */
+.about p{max-width:900px;margin:0 auto;text-align:center;color:var(--muted)}
+footer{border-top:1px solid rgba(255,255,255,.08);padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+/* ===== 18. RESPONSIVE ===== */
+@media (max-width:1100px){.pill nav{display:none}.cat-grid,.jury-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){
+  section{padding:56px 0}.title{font-size:1.9rem}
+  .topbar nav{gap:18px;overflow-x:auto;white-space:nowrap}
+  .topbar .row1 .divider,.event-name{display:none}
+  .brand .name{font-size:1.1rem}.hero .brand .name{font-size:1.4rem}.hero .brand .mark{font-size:1.6rem}
+  .hashtag{display:none}
+  .overview,.why-grid,.how-grid{grid-template-columns:1fr}
+  .cat-grid,.jury-grid{grid-template-columns:1fr}
+  .zigzag{grid-template-columns:1fr;row-gap:24px}
+  .zigzag::before,.zigzag .txt::before{display:none}
+  .zigzag .img.second{order:3}.zigzag .txt.leftside{order:4}
+  .ticket{padding:50px 34px}.ticket::before,.ticket::after{display:none}
+  .contacts{grid-template-columns:1fr}
+  .share a{width:40px;height:40px;font-size:1rem}
+  .pill{padding:10px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- FIXED ELEMENTS -->
+<div class="pill" id="pill">
+  <div><b>Western India Business Awards 2027</b><small>20 Feb 2027 · Pune, Maharashtra</small></div>
+  <span class="divider"></span>
+  <nav><a href="#home">Home</a><a href="#category">Category</a><a href="#jury">Jury Members</a><a href="#how">Entry Guidelines</a><a href="#">T&amp;C</a><a href="#faq">FAQs</a><a href="#contact">Contact Us</a></nav>
+</div>
+<div class="share">
+  <a class="fb" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+  <a class="x" href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+  <a class="li" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+  <a class="wa" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<a href="#home" class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+<!-- HEADER -->
+<header class="topbar" id="home">
+  <div class="container">
+    <div class="row1">
+      <div class="brand"><span class="mark">DL</span><span class="name">The Deccan Ledger<small>Business Desk</small></span></div>
+      <span class="divider"></span>
+      <div class="event-name"><b>Western India Business Awards 2027</b><span>2nd Edition</span></div>
+      <a href="#" class="login">Login</a>
+    </div>
+    <nav><a href="#home">Home</a><a href="#category">Category</a><a href="#jury">Jury Members</a><a href="#how">Entry Guidelines</a><a href="#">T&amp;C</a><a href="#faq">FAQs</a><a href="#contact">Contact Us</a></nav>
+  </div>
+</header>
+
+<!-- HERO: 12-tile photo collage -->
+<section class="hero">
+  <div class="hero-bg">
+    <img class="cover" alt="factory" src="https://loremflickr.com/480/360/factory?lock=11">
+    <img class="cover" alt="city" src="https://loremflickr.com/480/360/mumbai?lock=12">
+    <img class="cover" alt="students" src="https://loremflickr.com/480/360/students?lock=13">
+    <img class="cover" alt="bank" src="https://loremflickr.com/480/360/bank,building?lock=14">
+    <img class="cover" alt="windfarm" src="https://loremflickr.com/480/360/windturbine?lock=15">
+    <img class="cover" alt="office" src="https://loremflickr.com/480/360/office?lock=16">
+    <img class="cover" alt="market" src="https://loremflickr.com/480/360/market,india?lock=17">
+    <img class="cover" alt="train" src="https://loremflickr.com/480/360/metro,train?lock=18">
+    <img class="cover" alt="port" src="https://loremflickr.com/480/360/container,port?lock=19">
+    <img class="cover" alt="farmer" src="https://loremflickr.com/480/360/farmer?lock=20">
+    <img class="cover" alt="robot" src="https://loremflickr.com/480/360/robotics?lock=21">
+    <img class="cover" alt="bridge" src="https://loremflickr.com/480/360/bridge,highway?lock=22">
+  </div>
+  <div class="container">
+    <div class="hashtag">#WIBusinessAwards</div>
+    <div class="brand"><span class="mark">DL</span><span class="name">The Deccan Ledger<small>Business Desk</small></span></div>
+    <h1>Western India</h1>
+    <h2>Business Awards &amp; Summit</h2>
+    <div class="tagline">Celebrating Enterprise That Builds the Region</div>
+    <p class="status">Nominations are now open</p>
+    <div class="icon-line">
+      <span><i class="fa-regular fa-calendar"></i>20th February, 2027</span>
+      <span><i class="fa-solid fa-location-dot"></i>Pune, Maharashtra</span>
+    </div>
+    <a href="#contact" class="btn">Nominate Now</a>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section>
+  <div class="container overview">
+    <div>
+      <h2 class="title left">Overview</h2>
+      <p>The Western India Business Awards spotlight the companies, founders and institutions shaping the economy of Maharashtra, Gujarat and Goa. Now in its second year, the programme covers sectors from manufacturing and fintech to healthcare, education and the creative industries.</p>
+      <p>Every entry is reviewed by an independent panel of industry leaders, academics and policy experts. Winners are honoured at a black-tie ceremony in Pune and featured across our print, digital and video channels, giving their work the visibility it deserves.</p>
+      <a href="#" class="more">Read More...</a>
+    </div>
+    <div>
+      <h2 class="title left">Key Dates</h2>
+      <ul class="dates">
+        <li>Early Bird Deadline: 30th November, 2026</li>
+        <li>Regular Deadline: 20th December, 2026</li>
+        <li>Extended Deadline: 10th January, 2027</li>
+        <li>Jury Round: Last week of January 2027</li>
+        <li>Awards Night: 20th February, 2027</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="category">
+  <div class="container">
+    <h2 class="title">Categories</h2>
+    <div class="cat-grid">
+      <a href="#" class="cat"><img class="cover" alt="finance" src="https://loremflickr.com/600/600/bank,finance?lock=31"><h3>Banking &amp; Finance Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="education" src="https://loremflickr.com/600/600/classroom?lock=32"><h3>Education Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="energy" src="https://loremflickr.com/600/600/solar,panel?lock=33"><h3>Clean Energy Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="hospitality" src="https://loremflickr.com/600/600/hotel,resort?lock=34"><h3>Travel &amp; Hospitality Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="health" src="https://loremflickr.com/600/600/hospital,doctor?lock=35"><h3>Healthcare Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="marketing" src="https://loremflickr.com/600/600/marketing,laptop?lock=36"><h3>Marketing &amp; Advertising Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="media" src="https://loremflickr.com/600/600/camera,film?lock=37"><h3>Media &amp; Creative Awards</h3></a>
+      <a href="#" class="cat"><img class="cover" alt="logistics" src="https://loremflickr.com/600/600/warehouse,truck?lock=38"><h3>Logistics &amp; Supply Chain Awards</h3></a>
+    </div>
+  </div>
+</section>
+
+<!-- JURY (fictional people, stock portraits) -->
+<section id="jury">
+  <div class="container">
+    <h2 class="title">Grand Jury Members</h2>
+    <div class="jury-grid">
+      <div class="jury"><img class="cover" alt="Ananya Kulkarni" src="https://randomuser.me/api/portraits/women/44.jpg"><h3>Dr. Ananya Kulkarni</h3><p>Dean, School of Management<br>Sahyadri Institute of Business</p></div>
+      <div class="jury"><img class="cover" alt="Rohan Mehta" src="https://randomuser.me/api/portraits/men/32.jpg"><h3>Rohan Mehta</h3><p>Managing Partner<br>Konkan Growth Capital</p></div>
+      <div class="jury"><img class="cover" alt="Farah Siddiqui" src="https://randomuser.me/api/portraits/women/68.jpg"><h3>Farah Siddiqui</h3><p>Chief Sustainability Officer<br>Narmada Renewables</p></div>
+      <div class="jury"><img class="cover" alt="Vikram Deshpande" src="https://randomuser.me/api/portraits/men/75.jpg"><h3>Vikram Deshpande</h3><p>Former Chairman<br>Western Chamber of Industry</p></div>
+      <div class="jury"><img class="cover" alt="Meera Iyer" src="https://randomuser.me/api/portraits/women/12.jpg"><h3>Meera Iyer</h3><p>Founder &amp; CEO<br>BrightPath HealthTech</p></div>
+      <div class="jury"><img class="cover" alt="Arjun Nair" src="https://randomuser.me/api/portraits/men/46.jpg"><h3>Arjun Nair</h3><p>Head of Strategy<br>Arabian Sea Logistics</p></div>
+      <div class="jury"><img class="cover" alt="Kavita Joshi" src="https://randomuser.me/api/portraits/women/90.jpg"><h3>Kavita Joshi</h3><p>Executive Director<br>Indrayani Cooperative Bank</p></div>
+      <div class="jury"><img class="cover" alt="Sameer Patil" src="https://randomuser.me/api/portraits/men/11.jpg"><h3>Sameer Patil</h3><p>Creative Director<br>Lighthouse Media Studio</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS SECTOR -->
+<section>
+  <div class="container">
+    <h2 class="title">Focus Sector</h2>
+    <div class="glass sectors">
+      Startups &amp; Founders | Fintech | Banking | Insurance | Manufacturing | Automobile &amp; EV | IT &amp; SaaS | Pharma | Hospitals &amp; Clinics |
+      Higher Education | EdTech | Real Estate | Infrastructure | Renewable Energy | Agritech | Food Processing | Textiles | Retail &amp; D2C |
+      Ports &amp; Shipping | Warehousing | Tourism | Hotels | Media | Advertising | Sports | Social Enterprises | MSMEs | Women-led Businesses
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTICIPATE -->
+<section>
+  <div class="container">
+    <h2 class="title">Why Participate in WIBA 2027?</h2>
+    <div class="why-grid">
+      <details><summary><i class="fa-solid fa-award"></i>Build Instant Credibility</summary><p>An independent jury's stamp of approval reassures clients, investors and partners.</p></details>
+      <details><summary><i class="fa-solid fa-award"></i>Celebrate Your Wins</summary><p>Mark a milestone year with an evening dedicated to your achievements.</p></details>
+      <details><summary><i class="fa-solid fa-award"></i>Recognise Your Team's Hard Work</summary><p>Give the people behind the results a moment on stage and a story to share.</p></details>
+      <details><summary><i class="fa-solid fa-award"></i>Win New Business With an Award Badge</summary><p>Use the winner's logo in pitches, proposals and campaigns all year long.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <h2 class="title">How Our Awards Work</h2>
+    <div class="how-grid">
+      <div class="glass how"><i class="fa-solid fa-user-graduate"></i><h3>Judging Criteria</h3><p>Entries are scored on measurable impact, innovation, scalability and community value.</p><p>Each criterion carries a published weight so every applicant knows the rules up front.</p><a href="#">View weightage</a></div>
+      <div class="glass how"><i class="fa-solid fa-pen-nib"></i><h3>Fair &amp; Independent</h3><p>Jury members declare conflicts of interest and step away from any category where they have a stake. Scores are averaged across at least three judges per entry.</p></div>
+      <div class="glass how"><i class="fa-solid fa-user-shield"></i><h3>Confidentiality</h3><p>Financials and internal documents are seen only by the jury. Only your company name and a short citation are published if you are shortlisted or win.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZIG-ZAG PROCESS -->
+<section>
+  <div class="container zigzag">
+    <div class="img"><img class="cover" alt="data review" src="https://loremflickr.com/900/450/data,chart?lock=41"></div>
+    <div class="txt right">
+      <h3>Independent Audit</h3>
+      <ul><li>Eligibility check: every entry is verified by an external audit partner before judging.</li><li>Tamper-proof scoring: results are tabulated and sealed until the awards night.</li></ul>
+    </div>
+    <div class="txt leftside">
+      <h3>Two-Stage Review</h3>
+      <ul><li>Sector experts score each entry on the published criteria.</li><li>The grand jury debates the top-ranked entries in a closed session.</li><li>Three finalists per category go through to the final round.</li></ul>
+    </div>
+    <div class="img second"><img class="cover" alt="jury meeting" src="https://loremflickr.com/900/450/meeting,boardroom?lock=42"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Your team's best year deserves a stage</h2>
+    <p><i class="fa-regular fa-calendar"></i>Extended Deadline: 10th January, 2027</p>
+  </div>
+</section>
+
+<!-- TICKET -->
+<section>
+  <div class="container">
+    <div class="ticket">
+      <i class="fa-solid fa-ticket"></i>
+      <h2>Join Us for the Awards Night</h2>
+      <p>Two complimentary passes for every shortlisted company</p>
+      <div class="icon-line">
+        <span><i class="fa-regular fa-calendar"></i>20th February, 2027</span>
+        <span><i class="fa-solid fa-location-dot"></i>The Riverside Grand, Pune</span>
+      </div>
+      <a href="#" class="btn">Get Tickets</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <h2 class="title">FAQs</h2>
+    <div class="faq">
+      <details><summary>What are the Western India Business Awards?</summary><p>An annual programme recognising standout organisations and leaders across Maharashtra, Gujarat and Goa.</p></details>
+      <details><summary>Why should my company enter?</summary><p>Winning brings independent validation, media coverage and a year of bragging rights with clients and talent.</p></details>
+      <details><summary>Who is eligible?</summary><p>Any registered business, startup, NGO or institution with operations in the western region during the last 18 months.</p></details>
+      <details><summary>How does the application and judging process work?</summary><p>Submit the online form with supporting documents. Entries are audited, scored by sector experts, then reviewed by the grand jury.</p></details>
+      <details><summary>What do winners receive?</summary><p>A trophy, a digital winner's badge, a feature in our awards supplement and a seat at the leaders' roundtable.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT (fictional details) -->
+<section id="contact">
+  <div class="container">
+    <h2 class="title">Contact Us</h2>
+    <div class="contacts">
+      <div><h4>For Nominations</h4><div class="glass">Priya Sharma<span>nominations@example.com</span><span>+91 98765 43210</span></div></div>
+      <div><h4>For Partnership</h4><div class="glass">Karan Malhotra<span>partners@example.com</span><span>+91 91234 56780</span></div></div>
+    </div>
+    <p class="escalation">For anything urgent, write to escalations@example.com and our events lead will respond within one working day.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <h2 class="title">About The Deccan Ledger</h2>
+    <p>The Deccan Ledger is a (fictional) business publication covering companies, policy and markets across western India, with daily newsletters, sector reports and live events for decision-makers.</p>
+  </div>
+</section>
+
+<footer>© 2027 The Deccan Ledger (demo content). All names, people and contact details on this page are fictional.</footer>
+
+<script>
+  // Pill nav + back-to-top on scroll
+  const header=document.querySelector('.topbar'),pill=document.getElementById('pill'),toTop=document.getElementById('toTop');
+  addEventListener('scroll',()=>{const p=scrollY>header.offsetHeight+200;pill.classList.toggle('show',p);toTop.classList.toggle('show',p)});
+
+  // If a photo service is down, swap in a backup image
+  document.querySelectorAll('img').forEach(img=>{
+    const fallback=()=>{ if(img.dataset.f) return; img.dataset.f=1;
+      const w=img.naturalWidth||800; img.src='https://picsum.photos/seed/'+encodeURIComponent(img.alt||'x')+'/800/600'; };
+    img.addEventListener('error',fallback);
+    if(img.complete && img.naturalWidth===0) fallback();
+  });
+</script>
+</body>
+</html>
